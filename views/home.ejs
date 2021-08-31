@@ -59,11 +59,12 @@
             <div>
 
                 <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                     <% if(auth==="logged" ){ %>
-                        <a class="nav-link" href="/logout">Logout </a>
                         <a class="nav-link" href="/userprofile">Profile</a>
-
+                        <a class="nav-link" href="/task">Add task</a>
+                        <a class="nav-link" href="/course">Your Course</a>
+                        <a class="nav-link" href="/logout">Logout </a>
                         <% } else { %>
                             <a class="nav-link" href="/login">Login </a>
                             <a class="nav-link" href="/register">Register</a>
@@ -76,10 +77,14 @@
 
         <main class="px-3">
 
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit
-                the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus labore, soluta iusto
+                ipsam, in tempora officiis impedit vel placeat sed nisi est odio fugit architecto praesentium possimus
+                assumenda aliquam sit.
+                Quaerat molestias illo reiciendis fugit voluptates ad laborum itaque distinctio dolor sapiente esse
+                iusto exercitationem hic, repellendus, unde repudiandae consequuntur expedita? Ducimus non molestiae
+                porro delectus debitis blanditiis nulla totam.</p>
             <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+                <a href="/register" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Register</a>
             </p>
         </main>
 

@@ -156,6 +156,6 @@ app.route("/task/remove/:id").get((req, res) => {
     });
 });
 
-app.get("/courses", (req, res) => {
+app.get("/course", isLoggedIn, (req, res) => {
     res.render("course.ejs");
 })
