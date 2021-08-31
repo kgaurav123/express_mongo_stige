@@ -6,7 +6,7 @@ const express = require('express'),
     bodyParser = require("body-parser"),
     LocalStrategy = require("passport-local"),
     //passportLocalMongoose = require("passport-local-mongoose"),
-    User = require("./models/user"),
+    User = require("./models/User"),
     Task = require("./models/Task");
 //Connecting database
 const dotenv = require('dotenv');
