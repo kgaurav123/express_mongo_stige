@@ -37,7 +37,13 @@ app.use(passport.session());
 //      R O U T E S
 //=======================
 app.get("/", (req, res) => {
-    res.render("home");
+    let authe = "";
+    if (req.isAuthenticated())
+        authe = "logged";
+    else
+        authe = "logout";
+
+    res.render("home", { auth: authe });
 })
 app.get("/userprofile", isLoggedIn, (req, res) => {
 
@@ -88,7 +94,7 @@ app.route("/edit/:id")
     })
     .post((req, res) => {
         const id = req.params.id;
-        User.findByIdAndUpdate(id, { phone: req.body.phone, email: req.body.email, role: req.body.role, language: req.body.languaget }, err => {
+        User.findByIdAndUpdate(id, { phone: req.body.phone, email: req.body.email, role: req.body.role, language: req.body.language }, err => {
             if (err) return res.send(500, err);
             res.redirect("/userprofile");
         });
@@ -97,14 +103,14 @@ app.route("/edit/:id")
 
 
 
-app.get("/task", (req, res) => {
+app.get("/task", isLoggedIn, (req, res) => {
     Task.find({}, (err, tasks) => {
         res.render("task.ejs", { Tasks: tasks });
     });
 });
 
 
-app.post('/task', async (req, res) => {
+app.post('/task', isLoggedIn, async (req, res) => {
     let ch;
     if (req.body.comp == 'on')
         ch = "Completed";
@@ -114,7 +120,7 @@ app.post('/task', async (req, res) => {
         content: req.body.content,
         iscomplete: ch
     });
-    console.log(req.body);
+
     try {
         await todoTask.save();
         res.redirect("/task");
@@ -149,3 +155,7 @@ app.route("/task/remove/:id").get((req, res) => {
         res.redirect("/task");
     });
 });
+
+app.get("/courses", (req, res) => {
+    res.render("course.ejs");
+})
