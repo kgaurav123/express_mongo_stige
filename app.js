@@ -7,6 +7,7 @@ const express = require('express'),
     LocalStrategy = require("passport-local"),
     //passportLocalMongoose = require("passport-local-mongoose"),
     User = require("./models/User"),
+    Course = require("./models/Course"),
     Task = require("./models/Task");
 //Connecting database
 const dotenv = require('dotenv');
@@ -157,5 +158,26 @@ app.route("/task/remove/:id").get((req, res) => {
 });
 
 app.get("/course", isLoggedIn, (req, res) => {
-    res.render("course.ejs");
-})
+    Course.find({}, (err, courses) => {
+        res.render("course.ejs", { Courses: courses });
+    });
+
+});
+
+
+// app.post("/course", isLoggedIn, async (req, res) => {
+
+
+//     const course = new Course({
+//         coursename: req.body.coursename,
+//         coursedesc: req.body.coursedesc
+//     });
+
+//     try {
+//         await course.save();
+//         res.redirect("/course");
+//     } catch (err) {
+//         console.log(err)
+//         res.redirect("/course");
+//     }
+// });

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.87.0">
-    <title>Courses</title>
+    <title>Home</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
@@ -45,6 +45,21 @@
                 font-size: 3.5rem;
             }
         }
+
+        .btn1 {
+            color: rgb(255, 255, 255);
+        }
+
+        .item-name {
+            border: black solid 1px;
+            border-radius: 5%;
+            padding: 6px;
+            margin-right: 7px;
+        }
+
+        span.item-name:nth-child(2) {
+            font-size: 10px;
+        }
     </style>
 
 
@@ -54,37 +69,64 @@
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
 
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
-
                     <a class="nav-link" href="/userprofile">Profile</a>
-                    <a class="nav-link" href="/task">Add task</a>
-                    <a class="nav-link active" href="/course">Your Course</a>
-                    <a class="nav-link" href="/logout">Logout </a>
-
+                    <a class="nav-link" href="/task">Add Task</a>
+                    <a class="nav-link  active" href="/course">Your Course</a>
+                    <a class="nav-link" href="/logout">Logout</a>
 
                 </nav>
             </div>
         </header>
 
         <main class="px-3">
+            <h1>Courses Assigned to You</h1>
+            <!-- <form action="/course" method="POST">
+                <div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Enter String</label>
+                        <input type="text" name="coursename" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter the Video link">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Enter description</label>
+                        <input type="text" name="coursedesc" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter the Video description">
+                    </div>
 
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus labore, soluta iusto
-                ipsam, in tempora officiis impedit vel placeat sed nisi est odio fugit architecto praesentium possimus
-                assumenda aliquam sit.
-                Quaerat molestias illo reiciendis fugit voluptates ad laborum itaque distinctio dolor sapiente esse
-                iusto exercitationem hic, repellendus, unde repudiandae consequuntur expedita? Ducimus non molestiae
-                porro delectus debitis blanditiis nulla totam.</p>
+                    <button type="submit" class="btn btn-primary mt-4 p-2">Add Course</button>
+                </div>
+            </form> -->
+
+            <div class="container background mt-3">
+
+                <ul class="list-group mt-3">
+                    <% Courses.forEach(details=> { %>
+                        <li class="list-group-item">
+
+                            <p>
+                                <%= details.coursedesc %>
+                            </p>
+                            <iframe width="560" height="315" src="<%= details.coursename %>"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </li>
+                        <% }) %>
+                </ul>
+            </div>
+
 
         </main>
 
         <footer class="mt-auto text-white-50">
-            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a
-                    href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+            <p> Full Stack Project for <a href="https://stige.tech/" class="text-white">StigeTask</a>, by <a
+                    href="https://kgaurav123-68b49.web.app/" class="text-white">Kumar Gourav</a>.</p>
         </footer>
     </div>
 
