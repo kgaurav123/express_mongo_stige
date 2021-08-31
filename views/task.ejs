@@ -1,0 +1,60 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Todo</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <div class="container background m-5">
+        <form action="/task" method="POST">
+            <div>
+                <label for="exampleInputEmail1" class="form-label">Enter String</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="content">
+                Mark it:<input type="checkbox" name="comp">
+                <button type="submit" style="display:inline-block;" class="btn btn-primary mt-4">Add</button>
+            </div>
+        </form>
+
+        <ul class="list-group mt-3">
+            <% Tasks.forEach(details=> { %>
+                <li class="list-group-item">
+                    <span class="item-name">
+                        <%= details.content %>
+                    </span>
+                    <span class="item-name">
+                        <%= details.iscomplete %>
+                    </span>
+                    <a href="task/edit/<%= details._id %>" type="button" class="btn btn-secondary btn1">
+                        Edit
+                    </a>
+                    <a href="/task/remove/<%= details._id %>" type="button" class="btn btn-danger btn1">
+                        Delete
+                    </a>
+                </li>
+                <% }) %>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

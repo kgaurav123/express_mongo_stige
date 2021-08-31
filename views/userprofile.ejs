@@ -1,0 +1,22 @@
+<h1>
+    Hello <%=userdetails.username%>
+</h1>
+<p>
+    Edit your details
+</p>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/task">Task</a></li>
+    <form action="/edit/<%= userdetails._id %>" method="POST">
+        Email: <input type="text" style="width: 80%;" value="<%= userdetails.email %>" name="email"><br>
+        Phone: <input type="text" style="width: 80%;" value="<%= userdetails.phone %>" name="phone"><br>
+
+        Role: <input type="text" style="width: 80%;" value="<%= userdetails.role %>" name="role"><br>
+
+        Language: <input type="text" style="width: 80%;" value="<%= userdetails.language %>" name="language"><br>
+        <button type="submit" class="btn btn-success">Confirm</button>
+        <a type="button" href="/" type="submit" class="btn btn-secondary">Cancel</a>
+
+    </form>
+    <li><a href="/logout">Logout</a></li>
+</ul>
